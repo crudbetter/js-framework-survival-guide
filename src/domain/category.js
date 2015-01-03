@@ -1,6 +1,10 @@
 function Category(name) {
-	if (!Category.idCounter) Category.idCounter = 0;
-
-	this.id = Category.idCounter++;
 	this.name = name;
+	this.articles = [];
+}
+
+Category.prototype.assign = function(article) {
+	if (this.articles.indexOf(article) < 0) {
+		this.articles.push(article);
+	}
 }
