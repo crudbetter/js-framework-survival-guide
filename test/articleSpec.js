@@ -12,5 +12,6 @@ describe('An article', function() {
 		article.assignCategory(cat1);
 
 		expect(article.categories.length).toEqual(1);
+		expect(article.categories[0]).toEqual(cat1);
 	});
 });
