@@ -5,30 +5,31 @@
   </head>
   <body>
 
-    <div ng-controller="ArticleCtrl">
+    <div ng-controller="CategoryCtrl">
 
-      <div ng-repeat="article in articles">
-        <p>{{article.title}}</p>
-        <div ng-controller="CategoryCtrl">
+      <div ng-controller="ArticleCtrl">
+
+        <div ng-repeat="article in articles">
+          <p>{{article.title}}</p>
+
           <button ng-repeat="category in categories" ng-click="assignCategory(category, article)">
             {{category.name}}
           </button>
         </div>
+
+        <hr/>
+
+        <input type="text" ng-model="title" />
+        <button ng-click="addArticle(title)">Add Article</button>
+
       </div>
 
       <hr/>
 
-      <input type="text" ng-model="title" />
-      <button ng-click="addArticle(title)">Add Article</button>
-
-    </div>
-
-    <hr/>
-
-    <div ng-controller="CategoryCtrl">
       <span ng-repeat="category in categories">
         {{category.name}} [{{category.articles.length}}]
       </span>
+
     </div>
 
     <script src="../domain/article.js"></script>

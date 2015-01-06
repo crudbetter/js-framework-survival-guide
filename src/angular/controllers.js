@@ -15,9 +15,9 @@ angular.module('survivalGuide.controllers')
 	.controller('CategoryCtrl', function($scope) {
 
 		$scope.categories = [
-			new Category('JavaScript'),
-			new Category('AngularJS')
-		];
+      new Category('JavaScript'),
+      new Category('AngularJS')
+    ];
 
 		$scope.assignCategory = function(category, article) {
 			category.assign(article);
