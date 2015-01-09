@@ -8,3 +8,5 @@ Category.prototype.assign = function(article) {
 		this.articles.push(article);
 	}
 }
+
+module.exports = Category;

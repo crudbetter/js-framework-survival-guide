@@ -1,3 +1,6 @@
+var Article = require('article');
+var Category = require('category');	
+
 describe('A category', function() {
 	it('should be assignable once per article', function() {
 		var article1 = new Article('The best way to share data between AngularJS controllers');

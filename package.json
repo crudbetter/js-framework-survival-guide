@@ -5,12 +5,16 @@
     "karma-chrome-launcher": "~0.1.5",
     "karma-jasmine": "~0.3.0",
     "angular": "~1.3.8",
-    "http-server": "~0.7.4"
+    "http-server": "~0.7.4",
+    "karma-commonjs": "0.0.13"
   },
   "scripts": {
     "pretest": "npm install",
     "test": "karma start --single-run",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1"
+  },
+  "browser": {
+    "angular": "./src/angular/angular.js"
   }
 }

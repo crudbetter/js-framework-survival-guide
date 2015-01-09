@@ -1,3 +1,3 @@
-angular.module('survivalGuide.controllers', []);
+require('angular').module('survivalGuide', []);
 
-angular.module('survivalGuide', ['survivalGuide.controllers']);
+require('./controllers');
