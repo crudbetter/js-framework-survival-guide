@@ -1,5 +1,5 @@
-var Article = require('article');
-var Category = require('category');	
+var Article = require('../../src/domain/article');
+var Category = require('../../src/domain/category');	
 
 describe('A category', function() {
 	it('should be assignable once per article', function() {

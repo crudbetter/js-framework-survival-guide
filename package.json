@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "jasmine-core": "~2.1.3",
-    "karma": "~0.12.24",
-    "karma-chrome-launcher": "~0.1.5",
-    "karma-jasmine": "~0.3.0",
     "angular": "~1.3.8",
     "http-server": "~0.7.4",
-    "karma-commonjs": "0.0.13"
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-browserify": "^4.3.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
   },
   "scripts": {
     "pretest": "npm install",
@@ -16,5 +16,8 @@
   },
   "browser": {
     "angular": "./src/angular/angular.js"
+  },
+  "dependencies": {
+    "react": "^0.12.2"
   }
 }
