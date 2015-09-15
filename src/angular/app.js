@@ -5,6 +5,14 @@ articleList.push('Watch Client-Only state in AngularJS');
 articleList.push('Demystifying React component state');
 
 angular.module('survivalGuide', [
-  require('./controllers'),
+  'survivalGuide.controllers',
+  'survivalGuide.directives'
+]);
+
+angular.module('survivalGuide.controllers', [
+  require('./controllers')
+]);
+
+angular.module('survivalGuide.directives', [
   require('./directives/piechart')
 ]);

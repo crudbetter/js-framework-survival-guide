@@ -1,12 +1,6 @@
-var angular = require('angular');
-var moduleName = 'survivalGuide.directives.piechart';
-
-angular.module(moduleName, [])
-  .constant('piechartConfig', {
-    radius: 10
-  })
-	.controller('PiechartCtrl', require('./controller'))
-	.directive('piechart', require('./piechart'))
-	.directive('piechartSlice', require('./piechartSlice'));
-
-module.exports = moduleName;
+module.exports = ['$provide', '$controllerProvider', '$compileProvider', function(provide, ctrl, compile) {
+  provide.constant('piechartConfig', { radius: 10 });
+  ctrl.register('PiechartCtrl', require('./controller'));
+  compile.directive('piechart', require('./piechart'));
+  compile.directive('piechartSlice', require('./piechartSlice'));
+}];
