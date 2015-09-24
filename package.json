@@ -6,12 +6,14 @@
     "karma": "^0.13.9",
     "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
-    "karma-jasmine": "^0.3.6"
+    "karma-jasmine": "^0.3.6",
+    "reactify": "^1.1.1",
+    "watchify": "^3.4.0"
   },
   "scripts": {
     "pretest": "npm install",
     "test": "karma start --single-run",
-    "prestart": "npm install",
+    "prestart": "watchify -t reactify src/react/app.jsx -o src/react/bundle.js --debug &",
     "start": "http-server -a localhost -p 8000 -c-1"
   },
   "browser": {
@@ -22,12 +24,13 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "reactify"
     ]
   },
   "dependencies": {
     "angular": "^1.4.5",
-    "react": "^0.12.2",
-    "http-server": "^0.8.0"
+    "http-server": "^0.8.0",
+    "react": "^0.13.3"
   }
 }
