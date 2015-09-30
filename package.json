@@ -13,7 +13,7 @@
   "scripts": {
     "pretest": "npm install",
     "test": "karma start --single-run",
-    "prestart": "watchify -t reactify src/react/app.jsx -o src/react/bundle.js --debug &",
+    "prestart": "watchify -t reactify src/app.jsx -o src/bundle.js --debug &",
     "start": "http-server -a localhost -p 8000 -c-1"
   },
   "browser": {
