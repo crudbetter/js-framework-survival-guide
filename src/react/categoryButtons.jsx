@@ -7,7 +7,7 @@ var CategoryButtons = React.createClass({
       <span>
         {this.props.categories.map(function(category, index) {
           return (
-            <button onClick={this.props.onCategorise.bind(null, category)}>
+            <button onClick={this.props.onCategorise.bind(null, index)}>
               {category.name}
             </button>
           );

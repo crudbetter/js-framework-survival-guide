@@ -9,7 +9,7 @@ var ArticleForm = React.createClass({
     if (!title) {
       return;
     }
-    this.props.onArticleSubmit(title);
+    this.props.onArticleSubmit(new Article(title));
     React.findDOMNode(this.refs.title).value = '';
   },
   render: function() {

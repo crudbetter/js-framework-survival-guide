@@ -1,21 +1,23 @@
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 var ArticleForm = require('./articleForm.jsx');
 var ArticleList = require('./articleList.jsx');
 var CategoryCount = require('./categoryCount.jsx');
 
 var Blog = React.createClass({
-  handleArticleSubmit: function(title) {
-    this.state.articles.push(title);
-    this.forceUpdate();
-    // or a sort of partial forced state update...
-    //this.setState({ articles: this.state.articles });
+  handleArticleSubmit: function(article) {
+    var newState = React.addons.update(this.state, {
+      articles: { $push: [article] }
+    });
+    this.setState(newState);
   },
-  handleCategorise: function(article, category) {
+  handleCategorise: function(article, categoryIndex) {
+    var category = this.state.categories[categoryIndex];
     category.assign(article);
-    this.forceUpdate();
-    // or a sort of partial forced state update...
-    //this.setState({ categories: this.state.categories });
+    var newState = React.addons.update(this.state, {
+      categories: { $splice: [[categoryIndex, 1, category]] }
+    });
+    this.setState(newState);
   },
   getInitialState: function() {
     return {

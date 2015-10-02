@@ -8,11 +8,13 @@ module.exports = function($scope) {
 		category.assign(article);
 	};
 
+  // **** DEMO PURPOSES ONLY ****
   categoryList.forEach(function(category) {
     Array.observe(category.articles, function() {
       $scope.$digest();
     });
   });
+  // ****
   
   $scope.articleCount = function(category) {
     return category.articles.length;
