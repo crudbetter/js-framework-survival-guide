@@ -11,7 +11,7 @@ I love JavaScript. I can remember the excitement of first learning Backbone and 
 
 Then I had a child. I still love JavaScript, but I'm no longer quite so keen on the rate of change - a family to support increases the anxiety from "not keeping up".
 
-For the remainder of 2015 I had Allen's article in the back of my mind. I was working for a client who's JavaScript application (we'll call it a semi-SPA) was only a couple of years old at most, implemented with Knockout and was already legacy. Yet moving to a new shiny framework would be painful in the extreme and viable from a business point-of-view, i.e. too expensive without first a significant ROI on the first version.
+For the remainder of 2015 I had Allen's article in the back of my mind. I was working for a client who's JavaScript application (we'll call it a semi-SPA) was only a couple of years old at most, implemented with Knockout and was already legacy. Yet moving to a new shiny framework would be painful in the extreme and not viable from a business point-of-view, i.e. too expensive without first a significant ROI on the first version.
 
 Most line-of-business applications have a core domain with code that is unique to that problem space. The rest is framework and plumbing boilerplate.
 
