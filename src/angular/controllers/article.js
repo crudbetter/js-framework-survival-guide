@@ -6,7 +6,7 @@ module.exports = function($scope) {
 	$scope.articles = articleList;
 
   // **** DEMO PURPOSES ONLY ****
-  Array.observer(articleList, function() {
+  Array.observe(articleList, function() {
     $scope.$digest();
   });
   // ****
