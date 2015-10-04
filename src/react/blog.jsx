@@ -3,6 +3,7 @@ var React = require('react/addons');
 var ArticleForm = require('./articleForm.jsx');
 var ArticleList = require('./articleList.jsx');
 var CategoryCount = require('./categoryCount.jsx');
+var Piechart = require('./piechart.jsx');
 
 var Blog = React.createClass({
   handleArticleSubmit: function(article) {
@@ -26,6 +27,10 @@ var Blog = React.createClass({
     };
   },
   render: function() {
+    var values = this.state.categories.map(function(category) {
+      return category.articles.length;
+    });
+    
     return (
       <div>
         <ArticleList articles={this.state.articles} categories={this.state.categories} handleCategorise={this.handleCategorise} />
@@ -33,6 +38,8 @@ var Blog = React.createClass({
         <ArticleForm onArticleSubmit={this.handleArticleSubmit} />
         <hr />
         <CategoryCount categories={this.state.categories} />
+        <hr />
+        <Piechart values={values} radius={100}/>
       </div>
     );
   }
