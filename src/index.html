@@ -30,6 +30,10 @@
         {{category.name}} [{{category.articles.length}}]
       </span>
 
+      <piechart radius="100">
+       <piechart-slice ng-repeat="category in categories" value="{{category.articles.length}}" stroke="white"/>
+      </piechart>
+
     </div>
 
     <div id="blogContainer"></div>
