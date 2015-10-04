@@ -1,4 +1,4 @@
-js-survival guide
+JS framework survival guide
 ===============================
 
 Towards the beginning of 2015 I read a great article by Allen Pike - [A JS framework on every table](http://www.allenpike.com/2015/javascript-framework-fatigue/). To quote my favourite section:
