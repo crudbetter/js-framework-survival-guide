@@ -1,13 +1,14 @@
 'use strict';
 var React = require('react');
-var Arc = require('../domain/arc');
 
 var Slice = React.createClass({
   render: function() {
-    var arc = new Arc(this.props.startAngle, this.props.endAngle);
+    var a = this.props.arc;
 
     return (
-      <path d={arc.toSVG()} stroke={this.props.stroke || 'white'} fill={this.props.fill || 'black'} />
+      <path d={'M0,0L' + a.start.x + ',' + a.start.y + 'A1,1,1,' + (a.large ? '1' : '0') + ',1,' + a.end.x + ',' + a.end.y + 'Z'} 
+        stroke={this.props.stroke || 'white'} 
+        fill={this.props.fill || 'black'} />
     );
   }
 });
