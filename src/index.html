@@ -31,7 +31,7 @@
       </span>
 
       <piechart radius="100">
-       <piechart-slice ng-repeat="category in categories" value="{{category.articles.length}}" stroke="white"/>
+       <piechart-slice ng-repeat="category in categories" value="category.articles.length" stroke="white"/>
       </piechart>
 
     </div>

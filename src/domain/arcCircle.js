@@ -1,19 +1,18 @@
 var Arc = require('./arc');
 
-function Circle(values) {
-  var totalValue = values.reduce(function(prev, cur) {
+function Circle(options) {
+  this.totalValue = options.totalValue || options.values.reduce(function(prev, cur) {
     return prev + cur;
   }, 0);
-  var prevStartAngle = 0;
 
-  var arcs = this.arcs = [];
+  this.prevStartAngle = 0;
+}
 
-  values.forEach(function(value) {
-    var startAngle = prevStartAngle;
-    var endAngle = prevStartAngle = (prevStartAngle + (360 / (totalValue / value))) % 360;
+Circle.prototype.nextArc = function(value) {
+  var startAngle = this.prevStartAngle;
+  var endAngle = this.prevStartAngle = (this.prevStartAngle + (360 / (this.totalValue / value))) % 360;
 
-    arcs.push(new Arc(startAngle, endAngle));
-  });
+  return new Arc(startAngle, endAngle);
 }
 
 module.exports = Circle;

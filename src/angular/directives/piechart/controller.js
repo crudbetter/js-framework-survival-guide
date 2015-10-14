@@ -1,6 +1,6 @@
-var Arc = require('../../../domain/arc');
+var Circle = require('../../../domain/arcCircle');
 
-module.exports = function($scope, $attrs, piechartConfig) {
+module.exports = function($scope, $attrs) {
   
   var slices;
 
@@ -8,25 +8,25 @@ module.exports = function($scope, $attrs, piechartConfig) {
 
   this.addSlice = function(sliceScope) {
     slices.push(sliceScope);
+    sliceScope.$on('$destroy', function() {
+      that.removeSlice(sliceScope);
+    });
   };
 
   this.removeSlice = function(sliceScope) {
     slices.splice(slices.indexOf(sliceScope), 1);
+    this.render();;
   };
 
-  this.setArcs = function() {
-    var prevStartAngle = 0;
+  this.render = function() {
     var totalValue = slices.reduce(function(total, slice) {
       return total + slice.value;
     }, 0);
 
-    $scope.radius = angular.isDefined($attrs.radius) ? $scope.$eval($attrs.radius) : piechartConfig.radius;
+    var circle = new Circle({ totalValue: totalValue });
 
     angular.forEach(slices, function(slice) {
-      var startAngle = prevStartAngle;
-      var endAngle = prevStartAngle = (prevStartAngle + (360 / (totalValue / slice.value))) % 360;
-
-      slice.arc = new Arc(startAngle, endAngle);
+      slice.arc = circle.nextArc(slice.value);
     });
   };
 };
