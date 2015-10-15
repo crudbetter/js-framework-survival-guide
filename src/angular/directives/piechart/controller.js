@@ -1,4 +1,4 @@
-var Circle = require('../../../domain/arcCircle');
+var Circle = require('../../../domain/circle');
 
 module.exports = function($scope, $attrs) {
   
