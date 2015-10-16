@@ -1,4 +1,4 @@
-var Circle = require('../../../domain/circle');
+var circleFactory = require('../../../domain/circleFactory');
 
 module.exports = function($scope, $attrs) {
   
@@ -19,14 +19,16 @@ module.exports = function($scope, $attrs) {
   };
 
   this.render = function() {
-    var totalValue = slices.reduce(function(total, slice) {
-      return total + slice.value;
-    }, 0);
-
-    var circle = new Circle({ totalValue: totalValue });
-
-    angular.forEach(slices, function(slice) {
-      slice.arc = circle.nextArc(slice.value);
+    var values = slices.map(function(slice) {
+      return slice.value;
     });
+    var circle = circleFactory(values);
+    var arc;
+    var i = 0;
+
+    while (arc = circle.nextArc()) {
+      slices[i].arc = arc;
+      i++;
+    }
   };
 };
