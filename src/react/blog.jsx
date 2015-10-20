@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
 var ArticleForm = require('./articleForm.jsx');
 var ArticleList = require('./articleList.jsx');
 var CategoryCount = require('./categoryCount.jsx');
@@ -7,18 +7,14 @@ var Piechart = require('./piechart.jsx');
 
 var Blog = React.createClass({
   handleArticleSubmit: function(article) {
-    var newState = React.addons.update(this.state, {
-      articles: { $push: [article] }
-    });
-    this.setState(newState);
+    var articles = this.state.articles;
+    articles.push(article);
+    this.setState(articles);
   },
   handleCategorise: function(article, categoryIndex) {
-    var category = this.state.categories[categoryIndex];
-    category.assign(article);
-    var newState = React.addons.update(this.state, {
-      categories: { $splice: [[categoryIndex, 1, category]] }
-    });
-    this.setState(newState);
+    var categories = this.state.categories;
+    categories[categoryIndex].assign(article);
+    this.setState(categories);
   },
   getInitialState: function() {
     return {
