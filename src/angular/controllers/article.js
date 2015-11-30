@@ -11,7 +11,9 @@ module.exports = function($scope) {
   });
   // ****
 
-	$scope.addArticle = function(title) {
-		$scope.articles.push(new Article(title));
+	$scope.addArticle = function() {
+    if ($scope.title) {
+    	$scope.articles.push(new Article($scope.title));
+    }
 	};
 };

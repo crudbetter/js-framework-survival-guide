@@ -13,7 +13,7 @@ var Blog = React.createClass({
   },
   handleCategorise: function(article, categoryIndex) {
     var categories = this.state.categories;
-    categories[categoryIndex].assign(article);
+    categories[categoryIndex].toggle(article);
     this.setState(categories);
   },
   getInitialState: function() {
