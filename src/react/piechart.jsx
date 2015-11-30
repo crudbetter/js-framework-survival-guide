@@ -16,7 +16,7 @@ var Piechart = React.createClass({
     }
 
     return (
-      <svg height={size} width={size}>
+      <svg height={size} width={size} className="row center-block">
         <g transform={'translate(' + radius + ', ' + radius + '), scale(' + radius + ')'} 
           strokeWidth={1 / radius}>
             {slices}

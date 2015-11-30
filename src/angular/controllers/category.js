@@ -5,7 +5,7 @@ module.exports = function($scope) {
 	$scope.categories = categoryList;
 
 	$scope.assignCategory = function(category, article) {
-		category.assign(article);
+		category.toggle(article);
 	};
 
   // **** DEMO PURPOSES ONLY ****

@@ -4,15 +4,17 @@ var React = require('react');
 var CategoryButtons = React.createClass({
   render: function() {
     return (
-      <span>
+      <div>
         {this.props.categories.map(function(category, index) {
           return (
-            <button onClick={this.props.onCategorise.bind(null, index)}>
-              {category.name}
-            </button>
+            <span className="col-md-3">
+              <button onClick={this.props.onCategorise.bind(null, index)} className="btn btn-primary">
+                {category.name}
+              </button>
+            </span>
           );
         }, this)}
-      </span>
+      </div>
     );
   }
 });

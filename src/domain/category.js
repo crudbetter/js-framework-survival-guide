@@ -3,10 +3,14 @@ function Category(name) {
 	this.articles = [];
 }
 
-Category.prototype.assign = function(article) {
-	if (this.articles.indexOf(article) < 0) {
-		this.articles.push(article);
-	}
+Category.prototype.toggle = function(article) {
+  var index = this.articles.indexOf(article);
+
+  if (index == -1) {
+    this.articles.push(article);
+  } else {
+    this.articles.splice(index, 1);
+  }
 }
 
 module.exports = Category;

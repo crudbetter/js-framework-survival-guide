@@ -1,42 +1,57 @@
 <!DOCTYPE html>
-<html ng-app="survivalGuide">
+<html ng-app="survivalGuide" lang="en">
   <head>
-    <title>js-survival-guide</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>js-survival-guide</title> 
+    <link href="bootstrap.css" rel="stylesheet">
   </head>
   <body>
 
-    <div ng-controller="CategoryCtrl">
+    <div class="container-fluid">
+      <div class="row">
 
-      <div ng-controller="ArticleCtrl">
+        <div ng-controller="CategoryCtrl" class="col-md-6">
 
-        <div ng-repeat="article in articles">
-          <p>{{article.title}}</p>
+          <h1>AngularJS</h1>
 
-          <button ng-repeat="category in categories" ng-click="assignCategory(category, article)">
-            {{category.name}}
-          </button>
+          <piechart radius="100" class="row center-block">
+            <piechart-slice ng-repeat="category in categories" value="category.articles.length" stroke="white"/>
+          </piechart>
+
+          <div ng-controller="ArticleCtrl">
+
+            <div ng-repeat="article in articles" class="row">
+              <h3 class="col-md-12">{{article.title}}</h3>
+
+              <span ng-repeat="category in categories" class="col-md-3">
+                <button ng-click="assignCategory(category, article)" class="btn btn-primary">
+                  {{category.name}}
+                </button>
+              </span>
+            </div>
+
+            <hr/>
+
+            <form>
+            <input type="text" ng-model="title" />
+            <input type="submit" class="btn btn-default"></button>
+            <!--button ng-click="addArticle(title)" class="btn btn-default">Add Article</button-->
+          </form>
+
+          </div>
+
+          <hr/>
+
+          <span ng-repeat="category in categories">{{category.name}} [{{category.articles.length}}]</span>
+
         </div>
 
-        <hr/>
-
-        <input type="text" ng-model="title" />
-        <button ng-click="addArticle(title)">Add Article</button>
+        <div id="blogContainer" class="col-md-6"></div>
 
       </div>
-
-      <hr/>
-
-      <span ng-repeat="category in categories">
-        {{category.name}} [{{category.articles.length}}]
-      </span>
-
-      <piechart radius="100">
-       <piechart-slice ng-repeat="category in categories" value="category.articles.length" stroke="white"/>
-      </piechart>
-
     </div>
-
-    <div id="blogContainer"></div>
 
     <script src="bundle.js"></script>
   </body>

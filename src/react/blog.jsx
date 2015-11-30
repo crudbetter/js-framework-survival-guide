@@ -29,13 +29,13 @@ var Blog = React.createClass({
     
     return (
       <div>
+        <h1>React</h1>
+        <Piechart values={values} radius={100}/>
         <ArticleList articles={this.state.articles} categories={this.state.categories} handleCategorise={this.handleCategorise} />
         <hr />
         <ArticleForm onArticleSubmit={this.handleArticleSubmit} />
         <hr />
         <CategoryCount categories={this.state.categories} />
-        <hr />
-        <Piechart values={values} radius={100}/>
       </div>
     );
   }

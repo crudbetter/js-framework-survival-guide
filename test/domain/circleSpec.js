@@ -1,6 +1,6 @@
 var circleFactory = require('../../src/domain/circleFactory');
 
-describe('A dircle', function() {
+describe('A circle', function() {
   var circle = circleFactory([10, 20, 30]);
 
   it('should create sequential arcs', function() {

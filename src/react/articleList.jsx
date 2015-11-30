@@ -8,8 +8,8 @@ var ArticleList = React.createClass({
       <div>
         {this.props.articles.map(function(article, index) {
           return (
-            <div>
-              <p key={article}>{article.title}</p>
+            <div className="row">
+              <h3 key={article} className="col-md-12">{article.title}</h3>
               <CategoryButtons categories={this.props.categories} onCategorise={this.props.handleCategorise.bind(null, article)} />
             </div>
           );

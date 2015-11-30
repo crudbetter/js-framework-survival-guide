@@ -16,7 +16,7 @@ var ArticleForm = React.createClass({
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" ref="title" />
-        <input type="submit" value="Add Article" />
+        <input type="submit" value="Add Article" className="btn btn-default" />
       </form>
     );
   }
